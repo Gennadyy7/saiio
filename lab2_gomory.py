@@ -18,7 +18,7 @@ class GomoryMethod:
         self.b_orig = np.array(b, dtype=float)
         self.n_orig = self.c_orig.shape[0]
 
-        self.one_iteration = one_iteration
+        self.one_iteration = True
 
     @staticmethod
     def _fractional_part(x: float) -> float:
@@ -67,7 +67,7 @@ class GomoryMethod:
         coeffs = np.zeros(n + 1)
         for idx, j in enumerate(N0):
             coeffs[j] = self._fractional_part(q_row[idx])
-        coeffs[n] = -1.0  # коэффициент при s
+        coeffs[n] = -1.0
         return coeffs, rhs
 
     def solve(self):
@@ -93,13 +93,6 @@ class GomoryMethod:
             if self.one_iteration:
                 return cut, rhs
 
-            # Расширяем задачу
-            m, n = A.shape
-            A = np.hstack([A, np.zeros((m, 1))])
-            A = np.vstack([A, cut])
-            b = np.append(b, rhs)
-            c = np.append(c, 0.0)
-
 
 if __name__ == "__main__":
     # Пример 1
@@ -118,7 +111,7 @@ if __name__ == "__main__":
     # ], dtype=float)
     # b = np.array([22, 22], dtype=float)
 
-    solver = GomoryMethod(c, A, b, one_iteration=False)
+    solver = GomoryMethod(c, A, b)
     result = solver.solve()
 
     print("Результат выполнения лабораторной работы №2:")
@@ -132,7 +125,6 @@ if __name__ == "__main__":
         print("⚠️  Требуется добавить отсекающее ограничение Гомори:")
         print("Коэффициенты при переменных (включая новую s):", coeffs)
         print("Правая часть:", rhs)
-        print("\nФорма ограничения: sum(coeffs_i * x_i) = rhs")
         print("Новая переменная s соответствует последнему коэффициенту (-1).")
     else:
         print("❌", result)
