@@ -22,7 +22,6 @@ class GomoryMethod:
 
     @staticmethod
     def _fractional_part(x: float) -> float:
-        """Дробная часть: {x} = x - floor(x) ∈ [0, 1)"""
         return x - np.floor(x)
 
     @staticmethod
