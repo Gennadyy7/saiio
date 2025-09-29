@@ -56,11 +56,8 @@ class GomoryMethod:
         N0 = sorted(all_idx - set(B0))
         AN = A[:, N0] if N0 else np.empty((A.shape[0], 0))
         AB_inv = np.linalg.inv(AB)
-        if AN.size == 0:
-            q_row = np.array([])
-        else:
-            Q = AB_inv @ AN
-            q_row = Q[k, :]
+        Q = AB_inv @ AN
+        q_row = Q[k, :]
 
         rhs = self._fractional_part(x[jk])
         coeffs = np.zeros(n + 1)
