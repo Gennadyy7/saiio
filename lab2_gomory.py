@@ -41,7 +41,6 @@ class GomoryMethod:
     def _generate_cut(self, x, B, A):
         n = len(x)
         B0 = np.array(B) - 1  # в индексацию с 0
-        # Находим первую дробную базисную компоненту
         k = None
         for idx, j in enumerate(B0):
             if not self._is_integer_vector(np.array([x[j]])):
