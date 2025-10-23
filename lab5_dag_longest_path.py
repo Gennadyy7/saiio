@@ -14,6 +14,26 @@ ARCS = [
 S = '1'
 T = '6'
 
+# Источник: https://moccasin-main-whippet-16.mypinata.cloud/ipfs/bafkreierqko6ryqmfoqabztsy4nfii4q3kosvos6e4g5crs6cv5l7mxfie
+VERTICES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+ARCS = [
+    ('A', 'B', 3),
+    ('A', 'C', 6),
+    ('B', 'C', 4),
+    ('C', 'D', 8),
+    ('B', 'D', 4),
+    ('B', 'E', 11),
+    ('C', 'G', 11),
+    ('D', 'E', 2),
+    ('D', 'G', 2),
+    ('D', 'F', 5),
+    ('E', 'H', 9),
+    ('F', 'H', 1),
+    ('G', 'H', 2),
+]
+S = 'A'
+T = 'H'
+
 
 class DAGLongestPath:
     def __init__(self, vertices: list[str], arcs: list[tuple[str, str, int]], s: str, t: str):
