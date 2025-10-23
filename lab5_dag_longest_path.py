@@ -1,15 +1,18 @@
 from collections import defaultdict, deque
 
-VERTICES = ['A', 'B', 'C', 'D', 'E']
+# Источник: https://moccasin-main-whippet-16.mypinata.cloud/ipfs/bafkreigopuosjjb7khqphs3pjtbfi5j2yolp4hulg337oqbrtmd5nje2xe
+VERTICES = ['1', '2', '3', '4', '5', '6']
 ARCS = [
-    ('A', 'B', 3),
-    ('A', 'C', 2),
-    ('B', 'D', 4),
-    ('C', 'D', 1),
-    ('D', 'E', 2)
+    ('1', '2', 5),
+    ('1', '3', 3),
+    ('2', '4', 2),
+    ('2', '5', 6),
+    ('3', '5', 1),
+    ('4', '6', 1),
+    ('5', '6', 4),
 ]
-S = 'A'
-T = 'E'
+S = '1'
+T = '6'
 
 
 class DAGLongestPath:
