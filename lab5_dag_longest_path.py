@@ -1,36 +1,15 @@
 from collections import defaultdict, deque
 
-VERTICES_1 = ['A', 'B', 'C', 'D', 'E']
-ARCS_1 = [
+VERTICES = ['A', 'B', 'C', 'D', 'E']
+ARCS = [
     ('A', 'B', 3),
     ('A', 'C', 2),
     ('B', 'D', 4),
     ('C', 'D', 1),
     ('D', 'E', 2)
 ]
-S_1 = 'A'
-T_1 = 'E'
-
-VERTICES_2 = ['X', 'Y', 'Z']
-ARCS_2 = [
-    ('Y', 'X', 5),
-    ('Z', 'Y', 2)
-]
-S_2 = 'X'
-T_2 = 'Z'
-
-VERTICES_3 = ['P', 'Q', 'R']
-ARCS_3 = [
-    ('Q', 'R', 10),
-    ('P', 'Q', 1)
-]
-S_3 = 'R'
-T_3 = 'P'
-
-VERTICES = VERTICES_1
-ARCS = ARCS_1
-S = S_1
-T = T_1
+S = 'A'
+T = 'E'
 
 
 class DAGLongestPath:
