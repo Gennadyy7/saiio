@@ -1,14 +1,12 @@
-volumes = [2, 1, 3, 2]
-values = [12, 10, 20, 15]
+# Источник: https://www.gatevidyalay.com/0-1-knapsack-problem-using-dynamic-programming-approach/
+volumes = [2, 3, 4, 5]
+values = [3, 4, 5, 6]
 capacity = 5
 
-# volumes = [5, 4, 3, 2, 1]
-# values = [10, 40, 30, 20, 10]
-# capacity = 6
-
-# volumes = [10, 20, 30]
-# values = [5, 10, 15]
-# capacity = 5
+# Источник: пара
+volumes = [1, 2, 3, 3]
+values = [2, 2, 1, 2]
+capacity = 6
 
 
 class KnapsackSolver:
