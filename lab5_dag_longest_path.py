@@ -46,7 +46,6 @@ class DAGLongestPath:
 
         self.graph: dict[str, list[tuple[str, int]]] = defaultdict(list)
         self.in_degree: dict[str, int] = {v: 0 for v in self.vertices}
-        self.rev_graph: dict[str, list[str]] = defaultdict(list)
 
         for u, v, length in arcs:
             if u not in self.vertices or v not in self.vertices:
@@ -54,7 +53,6 @@ class DAGLongestPath:
             if length < 0:
                 raise ValueError(f"Длина дуги ({u}, {v}) должна быть неотрицательной.")
             self.graph[u].append((v, length))
-            self.rev_graph[v].append(u)
             self.in_degree[v] += 1
 
         for v in self.vertices:
