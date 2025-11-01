@@ -12,6 +12,22 @@ EDGES = [
     ('c', 'z'),
 ]
 
+# Источник: https://ocw.tudelft.nl/wp-content/uploads/Algoritmiek_Bipartite_Matching.pdf
+V1 = ['1',  '2',  '3',  '4',  '5']
+V2 = ["1'", "2'", "3'", "4'", "5'"]
+EDGES = [
+    ('1', "1'"),
+    ('1', "2'"),
+    ('2', "2'"),
+    ('3', "1'"),
+    ('3', "3'"),
+    ('3', "4'"),
+    ('4', "2'"),
+    ('4', "5'"),
+    ('5', "2'"),
+    ('5', "5'"),
+]
+
 
 class BipartiteMatching:
     def __init__(self, V1: list[str], V2: list[str], edges: list[tuple[str, str]], verbose: bool = True):
