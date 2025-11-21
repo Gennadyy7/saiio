@@ -3,12 +3,29 @@ from fractions import Fraction
 
 from lab6_bipartite_matching import BipartiteMatching
 
+# Источник: условие
 C = [
     [7, 2, 1, 9, 4],
     [9, 6, 9, 5, 5],
     [3, 8, 3, 1, 8],
     [7, 9, 4, 2, 2],
     [8, 4, 7, 4, 8],
+]
+
+# Источник: https://www.geeksforgeeks.org/dsa/hungarian-algorithm-assignment-problem-set-1-introduction/
+C = [
+    [2500, 4000, 3500],
+    [4000, 6000, 3500],
+    [2000, 4000, 2500],
+]
+
+# Источник: https://cbom.atozmath.com/example/CBOM/Assignment.aspx?q=hm&q1=E1
+C = [
+    [10, 5, 13, 15, 16],
+    [3, 9, 18, 13, 6],
+    [10, 7, 2, 2, 2],
+    [7, 11, 9, 7, 12],
+    [7, 9, 10, 4, 12],
 ]
 
 
