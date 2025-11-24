@@ -30,9 +30,6 @@ C = [
 
 
 class BipartiteMatchingConsumer(BipartiteMatching):
-    def get_final_graph(self) -> dict[str, list[str]]:
-        return {node: list(neighbors) for node, neighbors in self.graph.items()}
-
     def get_reachable_from_s(self) -> set[str]:
         visited = set()
         queue = deque([self.s])
@@ -173,19 +170,6 @@ class HungarianAlgorithm:
             if self.verbose:
                 print(f"\nШаги 10–11: обновлённый двойственный план")
                 self._print_matrix_with_dual()
-
-    @staticmethod
-    def _bfs_reachable_from_s(graph: dict[str, list[str]]) -> set[str]:
-        visited = set()
-        queue = deque(['s'])
-        visited.add('s')
-        while queue:
-            current = queue.popleft()
-            for neighbor in graph.get(current, []):
-                if neighbor not in visited:
-                    visited.add(neighbor)
-                    queue.append(neighbor)
-        return visited
 
 
 def main():
