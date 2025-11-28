@@ -18,6 +18,31 @@ CAPACITIES: dict[tuple[str, str], int] = {
 SOURCE: str = 's'
 TARGET: str = 't'
 
+# Источник: https://www.geeksforgeeks.org/dsa/ford-fulkerson-algorithm-for-maximum-flow-problem/
+CAPACITIES: dict[tuple[str, str], int] = {
+    ('0', '1'): 16,
+    ('1', '0'): 0,
+    ('0', '2'): 13,
+    ('2', '0'): 0,
+    ('1', '3'): 12,
+    ('3', '1'): 0,
+    ('1', '2'): 10,
+    ('2', '1'): 4,
+    ('2', '4'): 14,
+    ('4', '2'): 0,
+    ('3', '2'): 9,
+    ('2', '3'): 0,
+    ('3', '5'): 20,
+    ('5', '3'): 0,
+    ('4', '3'): 7,
+    ('3', '4'): 0,
+    ('4', '5'): 4,
+    ('5', '4'): 0,
+}
+
+SOURCE: str = '0'
+TARGET: str = '5'
+
 
 class Arc(NamedTuple):
     u: str
