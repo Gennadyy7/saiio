@@ -19,29 +19,29 @@ SOURCE: str = 's'
 TARGET: str = 't'
 
 # Источник: https://www.geeksforgeeks.org/dsa/ford-fulkerson-algorithm-for-maximum-flow-problem/
-CAPACITIES: dict[tuple[str, str], int] = {
-    ('0', '1'): 16,
-    ('1', '0'): 0,
-    ('0', '2'): 13,
-    ('2', '0'): 0,
-    ('1', '3'): 12,
-    ('3', '1'): 0,
-    ('1', '2'): 10,
-    ('2', '1'): 4,
-    ('2', '4'): 14,
-    ('4', '2'): 0,
-    ('3', '2'): 9,
-    ('2', '3'): 0,
-    ('3', '5'): 20,
-    ('5', '3'): 0,
-    ('4', '3'): 7,
-    ('3', '4'): 0,
-    ('4', '5'): 4,
-    ('5', '4'): 0,
-}
-
-SOURCE: str = '0'
-TARGET: str = '5'
+# CAPACITIES: dict[tuple[str, str], int] = {
+#     ('0', '1'): 16,
+#     ('1', '0'): 0,
+#     ('0', '2'): 13,
+#     ('2', '0'): 0,
+#     ('1', '3'): 12,
+#     ('3', '1'): 0,
+#     ('1', '2'): 10,
+#     ('2', '1'): 4,
+#     ('2', '4'): 14,
+#     ('4', '2'): 0,
+#     ('3', '2'): 9,
+#     ('2', '3'): 0,
+#     ('3', '5'): 20,
+#     ('5', '3'): 0,
+#     ('4', '3'): 7,
+#     ('3', '4'): 0,
+#     ('4', '5'): 4,
+#     ('5', '4'): 0,
+# }
+#
+# SOURCE: str = '0'
+# TARGET: str = '5'
 
 
 class Arc(NamedTuple):
@@ -109,7 +109,7 @@ class FordFulkersonSolver:
             f_rev = self.flow.get(rev, 0)
             self.residual_capacities[arc] = c - f + f_rev
 
-    def _find_path_bfs(self) -> list[Arc] | None:
+    def _find_path_labeling(self) -> list[Arc] | None:
         parent: dict[str, Arc | None] = {v: None for v in self.network.vertices}
         queue = deque([self.network.source])
         visited = {self.network.source}
@@ -199,10 +199,10 @@ class FordFulkersonSolver:
                         print(f"  {arc}: {cf}")
                 print()
 
-            path = self._find_path_bfs()
+            path = self._find_path_labeling()
             if path is None:
                 if self.verbose:
-                    print("Увеличивающий (s,t)-путь не найден → поток максимален.")
+                    print("(s,t)-путь не найден → поток максимален.")
                 break
 
             theta = min(self.residual_capacities[arc] for arc in path)
